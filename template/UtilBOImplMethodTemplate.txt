@@ -1,0 +1,165 @@
+    
+    
+	//===================================================================
+	// <<ObjectName>>UtilBO Method(findAObject, findList, save, remove) Start-<<TableName>>
+	//===================================================================
+   	
+	/**
+	 * 取一<<ObjectName>>主檔(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>OnlyMaster(final String iXuid, final Account iMgr) {
+				
+		return <<ModuleNameFrLowCase>>BO.findA<<ObjectName>>(iXuid, <<ModuleName>>BOImpl.INCLUDE_NONE);
+	}
+	
+	/**
+	 * 取一<<ObjectName>>主檔含明細(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>WithDetail(final String iXuid, final Account iMgr) {
+				
+		return <<ModuleNameFrLowCase>>BO.findA<<ObjectName>>(iXuid, <<ModuleName>>BOImpl.INCLUDE_ALL);
+	}
+		
+	/**
+	 * 取得<<ObjectName>>清單筆數(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return int
+	 */
+	public int find<<ObjectName>>ListCount (final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr){
+		<<ObjectName>>Condition search<<ObjectName>>Condition = i<<ObjectName>>Condition;
+		
+		return <<ModuleNameFrLowCase>>BO.find<<ObjectName>>ListCount(search<<ObjectName>>Condition);
+	}
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數，判斷是否有資料存在(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return boolean(true:有存在資料, false:未存在資料)
+	 */
+	public boolean find<<ObjectName>>ListCountHasRec (final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr){
+		<<ObjectName>>Condition search<<ObjectName>>Condition = i<<ObjectName>>Condition;
+		
+		return <<ModuleNameFrLowCase>>BO.find<<ObjectName>>ListCountHasRec(search<<ObjectName>>Condition);
+	}
+	
+	/**
+	 * 取<<ObjectName>>清單(<<TableName>>)
+	 * @param String iStrStartCount, String iStrEndCount, <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return <<ObjectName>>List
+	 */
+	public <<ObjectName>>List find<<ObjectName>>List (final String iStrStartCount, final String iStrEndCount, final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr){
+		<<ObjectName>>Condition search<<ObjectName>>Condition = i<<ObjectName>>Condition;
+
+		<<ObjectName>>List the<<ObjectName>>List = <<ModuleNameFrLowCase>>BO.find<<ObjectName>>List(iStrStartCount, iStrEndCount, search<<ObjectName>>Condition);
+		
+		if (the<<ObjectName>>List == null || the<<ObjectName>>List.size() == 0) {
+			return new <<ObjectName>>List();
+		}else{
+			return the<<ObjectName>>List;
+		}
+	}
+		
+    /**
+	 * 儲存<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Accont iMgr 	
+	 */
+	public void saveA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ModuleNameFrLowCase>>BO.saveA<<ObjectName>>(i<<ObjectName>>, iMgr);
+	}
+	
+	/**
+	 * 儲存<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Accont iMgr  	
+	 */
+	public void save<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ObjectName>> the<<ObjectName>> = null;
+		for(int i = 0; i < i<<ObjectName>>List.size(); i++){
+			the<<ObjectName>> = i<<ObjectName>>List.get<<ObjectName>>(i);
+			
+			<<ModuleNameFrLowCase>>BO.saveA<<ObjectName>>(the<<ObjectName>>, iMgr);
+		}
+	}
+
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 */
+	public void removeA<<ObjectName>>(final String iXuid, final Account iMgr){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ModuleNameFrLowCase>>BO.removeA<<ObjectName>>(iXuid, iMgr);
+	}
+	
+	/**
+	 * 刪除<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr
+	 */
+	public void remove<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ObjectName>> the<<ObjectName>> = null;
+		for(int i = 0; i < i<<ObjectName>>List.size(); i++){
+			the<<ObjectName>> = i<<ObjectName>>List.get<<ObjectName>>(i);
+			
+			<<ModuleNameFrLowCase>>BO.removeA<<ObjectName>>(the<<ObjectName>>.getXuid(), iMgr);
+		}
+	}
+	
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)BySelective
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr
+	 */
+	public void remove<<ObjectName>>BySelective(final <<ObjectName>> i<<ObjectName>>, final Account iMgr){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ModuleNameFrLowCase>>BO.remove<<ObjectName>>BySelective(i<<ObjectName>>, iMgr);
+	}
+
+	/**
+	 * 更新<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr, String updLimitField
+	 */
+	public void updateA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr, final String updLimitField){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		
+		<<ObjectName>> upd<<ObjectName>> = i<<ObjectName>>;
+		upd<<ObjectName>>.setLimitAccessibleFields(updLimitField);
+		<<ModuleNameFrLowCase>>BO.saveA<<ObjectName>>(upd<<ObjectName>>, iMgr);
+		upd<<ObjectName>>.clearLimitAccessibleFields();
+	}
+	
+	/**
+	 * 更新<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr, String updLimitField
+	 */
+	public void update<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr, final String updLimitField){
+		String strNowDat = new Ystd().udate();
+		String strNowTime = new Ystd().utime();
+		<<ObjectName>> upd<<ObjectName>> = null;
+		for(int i = 0; i < i<<ObjectName>>List.size(); i++){
+			upd<<ObjectName>> = i<<ObjectName>>List.get<<ObjectName>>(i);
+			
+			upd<<ObjectName>>.setLimitAccessibleFields(updLimitField);
+			<<ModuleNameFrLowCase>>BO.saveA<<ObjectName>>(upd<<ObjectName>>, iMgr);
+			upd<<ObjectName>>.clearLimitAccessibleFields();
+		}
+	}
+	
+	//===================================================================
+	// <<ObjectName>>UtilBO Method(findAObject, findList, save, remove) End-<<TableName>> 
+	//===================================================================
+	

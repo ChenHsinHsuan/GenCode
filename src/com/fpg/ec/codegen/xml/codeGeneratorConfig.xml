@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeGenConfig>
+	<!-- 資料庫連線資訊 <ORACLE or MSSQL>-->
+	<!-- MSSQL -->
+<!-- 	<DbConnection>
+		<Type>MSSQL</Type>
+		<Url>jdbc:sqlserver://10.3.226.97:1433;DatabaseName=ecpscm</Url>
+		<Id>ecpscmp</Id>
+		<Pwd>ecpscmp</Pwd>
+	</DbConnection> -->
+	
+	<!-- ORACLE -->
+	<DbConnection>
+		<Type>ORACLE</Type>
+		<Url>jdbc:oracle:thin:@tpfn07:1521:tpfn07</Url>
+		<Id>ecpscmp</Id>
+		<Pwd>ecpscmp</Pwd>
+	</DbConnection>
+	
+	<!-- Object -->
+	<Object>
+		<Module>Order</Module><!--模組名稱-->
+		<Package>com.fpg.ec.order</Package><!--Package名稱(Y/N)-->
+		<Author>N000100937</Author><!--作者(Y/N)-->
+		<CreateModel>Y</CreateModel><!--是否要建立Model, ModelBase, List, Condition, Validiation(Y/N)-->
+		<CreateBo>Y</CreateBo><!--是否要建立BO, UtilBO(Y/N)-->
+		<CreateDao>Y</CreateDao><!--是否要建立DAO, UtilDAO(Y/N)-->
+		<CreateMapper>Y</CreateMapper><!--是否要建立SQL Mapper(Y/N)-->
+		<CreateTableProperty>N</CreateTableProperty><!--是否要建立SQL Mapper Table Property-->
+	</Object>
+	
+	<!-- TABLES (hasMaster會將其Inculde 在主檔的BO的撈取中)-->
+	<Tables>
+		<table hasMaster="TXDECPO01">
+		    <TableName>TXDECPO01</TableName>
+		    <ObjectName>OrderAtt</ObjectName>
+		</table>		
+	</Tables>
+
+	<!-- PAGES -->
+	<page>
+		<FolderName>rma</FolderName><!-- JSP Folder名稱 -->
+		<ControllerName>Crmarmamtn</ControllerName><!-- Controller名稱 -->
+		<ControllerName>Crmarmasrh</ControllerName>
+	</page>
+</codeGenConfig>

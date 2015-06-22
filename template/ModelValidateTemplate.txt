@@ -1,0 +1,58 @@
+package <<PackageName>>.model.validate;
+
+import java.util.Hashtable;
+import com.fpg.ec.utility.db.DataAccessor;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Future;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+/**
+ * <<ObjectName>>Model Validate物件(<<TableName>>)
+ * @author <<Author>>
+ */
+ 
+/**
+ *  檢查Anotation語法說明
+    @Null	被注釋的元素必須為 null
+	@NotNull	被注釋的元素必須不為 null
+	@AssertTrue	被注釋的元素必須為 true
+	@AssertFalse 被注釋的元素必須為 false
+	@Min(value=)	被注釋的元素必須是一個數位，其值必須大於等於指定的最小值
+	@Max(value=)	被注釋的元素必須是一個數位，其值必須小於等於指定的最大值
+	@DecimalMin(value=)	被注釋的元素必須是一個數位，其值必須大於等於指定的最小值
+	@DecimalMax(value=)	被注釋的元素必須是一個數位，其值必須小於等於指定的最大值
+	@Size(max=, min=)	被注釋的元素的大小必須在指定的範圍內
+	@Digits (integer=, fraction=)	被注釋的元素必須是一個數位，其值必須在可接受的範圍內
+	@Past	被注釋的元素必須是一個過去的日期
+	@Future	被注釋的元素必須是一個將來的日期
+	@Pattern(regexp=)	被注釋的元素必須符合指定的正則運算式
+	@Email	被注釋的元素必須是電子郵箱位址
+	@Length(min=,max=)//檢查所屬的欄位的長度是否在min和max之間,只能用於字串
+	@NotEmpty	被注釋的字串的必須非空
+	@Range	被注釋的元素必須在合適的範圍內
+	@DateTimeFormat(pattern="MM/dd/yyyy")
+	@NumberFormat(pattern = "#,###.##") 
+	@NumberFormat(style = Style.PERCENT)
+	@NumberFormat(style = Style.CURRENCY) 
+ */
+  
+public class <<ObjectName>>Validate extends DataAccessor {
+	private static final long serialVersionUID = -2481658690308079917L;
+	
+	public <<ObjectName>>Validate() {
+        
+    }
+
+    public <<ObjectName>>Validate(Hashtable i_data) {
+        super(i_data);
+    }
+
+    <<GetSetMethod>>
+}

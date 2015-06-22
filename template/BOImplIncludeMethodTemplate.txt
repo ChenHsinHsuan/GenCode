@@ -1,0 +1,9 @@
+		//<<TableName>>
+		if ((INCLUDE_<<DetailObjectName>> & iInclude) == INCLUDE_<<DetailObjectName>>) {
+			<<DetailObjectName>>List <<DetailObjectNameFrLowCase>>List = new <<DetailObjectName>>List();
+			<<DetailObjectName>> key = new <<DetailObjectName>>();
+			key.setFxuid(objReturn.getXuid());
+			List list = <<DetailObjectNameFrLowCase>>DAO.selectListBySelective(key);
+			<<DetailObjectNameFrLowCase>>List.addAll(list);
+			objReturn.set<<DetailObjectName>>List(<<DetailObjectNameFrLowCase>>List);
+		}

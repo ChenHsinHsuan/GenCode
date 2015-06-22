@@ -1,0 +1,31 @@
+package <<PackageName>>.dao;
+
+import java.util.List;
+
+import <<PackageName>>.model.<<ObjectName>>;
+
+/**
+ * <<ObjectName>>DAO 介面(<<TableName>>)
+ * @author <<Author>>
+ */
+public interface <<ObjectName>>DAO {
+
+	// ### Base Method  ##################################################
+	
+    public void insert(<<ObjectName>> key);
+
+    public void insertSelective(<<ObjectName>> key);
+
+    public <<ObjectName>> selectByPrimaryKey(String xuid);
+
+    public List selectListBySelective(<<ObjectName>> key);
+
+ 	public int updateByPrimaryKey(<<ObjectName>> key);
+ 
+    public int updateByPrimaryKeySelective(<<ObjectName>> key);
+    
+    public int deleteByPrimaryKey(String xuid);
+    
+    public int deleteBySelective(<<ObjectName>> key);
+ 
+}

@@ -1,0 +1,32 @@
+package <<PackageName>>.model;
+
+import java.util.Hashtable;
+
+import <<PackageName>>.model.base.<<ObjectName>>Base;
+<<DeatailListImportData>>
+
+/**
+ * <<ObjectName>>Model物件(<<TableName>>)
+ * @author <<Author>>
+ */
+public class <<ObjectName>> extends <<ObjectName>>Base {
+	private static final long serialVersionUID = 6440739742118862257L;
+	
+	// ### 靜態變數資料 ################################################
+	 
+	public <<ObjectName>>() {
+        
+    }
+
+    public <<ObjectName>>(Hashtable i_data) {
+        super(i_data);
+    }
+
+	// ### 附屬清單資料 ################################################
+    <<DeatailList>>
+    
+    // ### 處理功能 ##################################################
+     
+    // ### Getter&Setter ##########################################
+
+}

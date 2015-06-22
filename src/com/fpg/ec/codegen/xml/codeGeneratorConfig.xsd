@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="codeGenConfig">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="DbConnection"/>
+                <xs:element ref="Object"/>
+                <xs:element ref="Tables"/>
+                <xs:element ref="page"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DbConnection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Type"/>
+                <xs:element ref="Url"/>
+                <xs:element ref="Id"/>
+                <xs:element ref="Pwd"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Type" type="xs:string"/>
+    <xs:element name="Url" type="xs:string"/>
+    <xs:element name="Id" type="xs:string"/>
+    <xs:element name="Pwd" type="xs:string"/>
+    <xs:element name="Object">
+        <xs:complexType>
+             <xs:sequence>
+                <xs:element ref="Author"/>
+                <xs:element ref="CreateBo"/>
+                <xs:element ref="CreateDao"/>
+                <xs:element ref="CreateMapper"/>
+                <xs:element ref="CreateModel"/>
+                <xs:element ref="CreateTableProperty"/>
+                <xs:element ref="Module"/>
+                <xs:element ref="Package"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Author" type="xs:string"/>
+    <xs:element name="CreateBo" type="xs:string"/>
+    <xs:element name="CreateDao" type="xs:string"/>
+    <xs:element name="CreateMapper" type="xs:string"/>
+    <xs:element name="CreateModel" type="xs:string"/>
+    <xs:element name="CreateTableProperty" type="xs:string"/>
+    <xs:element name="Module" type="xs:string"/>
+    <xs:element name="Package" type="xs:string"/>
+    <xs:element name="Tables">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="table"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="table">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="TableName"/>
+                <xs:element ref="ObjectName"/>
+            </xs:sequence>
+            <xs:attribute name="hasMaster" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TableName" type="xs:string"/>
+    <xs:element name="ObjectName" type="xs:string"/>
+    <xs:element name="page">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="FolderName"/>
+                <xs:element maxOccurs="unbounded" ref="ControllerName"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="FolderName" type="xs:string"/>
+    <xs:element name="ControllerName" type="xs:string"/>
+</xs:schema>

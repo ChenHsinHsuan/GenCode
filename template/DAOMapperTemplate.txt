@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="<<PackageName>>.dao.<<ObjectName>>DAO" >
+   <resultMap id="BaseResultMap" type="<<PackageName>>.model.<<ObjectName>>" >
+      <<BaseResultMap>>
+   </resultMap>
+   <sql id="BaseCol" >
+  	  <<BaseCol>>
+   </sql>
+   
+   <resultMap id="BaseResultMapWithData" type="<<PackageName>>.model.<<ObjectName>>" extends="BaseResultMap" >
+      <<BaseResultMapWithData>>
+   </resultMap>
+   <sql id="BaseColWithoutData" >
+  	  <<BaseColWithoutData>>
+   </sql>
+   
+   <insert id="insert" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      insert into <<TableName>> (<include refid="BaseCol" />)
+      values (<<InsertColVal>>)
+   </insert>
+  
+   <insert id="insertSelective" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      insert into <<TableName>>
+      <trim prefix="(" suffix=")" suffixOverrides="," >
+         <<InsertSelectiveCol>>
+	  </trim>
+	  <trim prefix="values (" suffix=")" suffixOverrides="," >
+	     <<InsertSelectiveColVal>>
+	  </trim>
+   </insert>
+  
+   <select id="selectByPrimaryKey" resultMap="<<SelByPrimaryKeyBaseResultMapDef>>" parameterType="java.lang.String" >
+      select <include refid="BaseCol" />
+      from <<TableName>>
+      where Xuid = #{xuid,jdbcType=NVARCHAR}
+   </select>
+  
+   <select id="selectListBySelective" resultMap="BaseResultMap" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      select <include refid="<<SelListBySelectiveBaseColDef>>" />
+      from <<TableName>>
+      <where>
+         <<SelectListBySelectiveColVal>>
+      </where>
+   </select>
+  
+   <update id="updateByPrimaryKey" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      update <<TableName>>
+      set 
+         <<UpdateByPrimaryKeyColVal>>
+      where Xuid = #{xuid,jdbcType=NVARCHAR}
+   </update>
+
+   <update id="updateByPrimaryKeySelective" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      update <<TableName>>
+      <set>
+         <<UpdateByPrimaryKeySelectiveColVal>>
+      </set>
+      where Xuid = #{xuid,jdbcType=NVARCHAR}
+   </update>
+
+   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+      delete from <<TableName>>
+      where Xuid = #{xuid,jdbcType=NVARCHAR}
+   </delete>
+   
+   <delete id="deleteBySelective" parameterType="<<PackageName>>.model.<<ObjectName>>" >
+      delete from <<TableName>>
+      <where>
+         <<SelectListBySelectiveColVal>>
+      </where>
+   </delete>
+</mapper>

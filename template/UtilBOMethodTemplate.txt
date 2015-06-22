@@ -1,0 +1,87 @@
+  	
+	//===================================================================
+	// <<ObjectName>>UtilBO Method(findAObject, findList, save, remove) Start-<<TableName>>
+	//===================================================================
+   
+	/**
+	 * 取一<<ObjectName>>主檔(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>OnlyMaster(final String iXuid, final Account iMgr);
+	
+	/**
+	 * 取一<<ObjectName>>主檔含明細(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>WithDetail(final String iXuid, final Account iMgr);
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return int
+	 */
+	public int find<<ObjectName>>ListCount (final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr);
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數，判斷是否有資料存在(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return boolean(true:有存在資料, false:未存在資料)
+	 */
+	public boolean find<<ObjectName>>ListCountHasRec (final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr);
+	
+	/**
+	 * 取<<ObjectName>>清單(<<TableName>>)
+	 * @param String iStrStartCount, String iStrEndCount, <<ObjectName>>Condition i<<ObjectName>>Condition, Account iMgr
+	 * @return <<ObjectName>>List
+	 */
+	public <<ObjectName>>List find<<ObjectName>>List (final String iStrStartCount, final String iStrEndCount, final <<ObjectName>>Condition i<<ObjectName>>Condition, final Account iMgr);
+	
+    /**
+	 * 儲存<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr  	
+	 */
+	public void saveA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr);
+	
+	/**
+	 * 儲存<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr  	
+	 */
+	public void save<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr);
+	
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 */
+	public void removeA<<ObjectName>>(final String iXuid, final Account iMgr);
+ 
+ 	/**
+	 * 刪除<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr
+	 */
+	public void remove<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr);
+	
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)BySelective
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr
+	 */
+	public void remove<<ObjectName>>BySelective(final <<ObjectName>> i<<ObjectName>>, final Account iMgr);
+	
+	/**
+	 * 更新<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr
+	 */
+	public void updateA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr, final String updLimitField);
+ 
+ 	/**
+	 * 更新<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr
+	 */
+	public void update<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr, final String updLimitField);
+
+	//===================================================================
+	// <<ObjectName>>UtilBO Method(findAObject, findList, save, remove) End-<<TableName>> 
+	//===================================================================
+	
+	

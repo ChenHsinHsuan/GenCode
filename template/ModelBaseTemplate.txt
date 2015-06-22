@@ -1,0 +1,22 @@
+package <<PackageName>>.model.base;
+
+import java.util.Hashtable;
+import com.fpg.ec.utility.db.SKDataAccessor;
+
+/**
+ * <<ObjectName>>Model Base物件(<<TableName>>)
+ * @author <<Author>>
+ */
+public class <<ObjectName>>Base extends SKDataAccessor {
+	private static final long serialVersionUID = -2481658690308079917L;
+	
+	public <<ObjectName>>Base() {
+        
+    }
+
+    public <<ObjectName>>Base(Hashtable i_data) {
+        super(i_data);
+    }
+
+    <<GetSetMethod>>
+}

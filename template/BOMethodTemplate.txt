@@ -1,0 +1,68 @@
+  	
+	//===================================================================
+	// <<ObjectName>>BO Method(findAObject, findList, save, remove) Start-<<TableName>>
+	//===================================================================
+   
+	/**
+	 * 取一<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, int iInclude
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>(final String iXuid, final int iInclude);
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return int
+	 */
+	public int find<<ObjectName>>ListCount (final <<ObjectName>>Condition i<<ObjectName>>Condition);
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數，判斷是否有資料存在(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return boolean(true:有存在資料, false:未存在資料)
+	 */
+	public boolean find<<ObjectName>>ListCountHasRec (final <<ObjectName>>Condition i<<ObjectName>>Condition);
+	
+	/**
+	 * 取<<ObjectName>>清單(<<TableName>>)
+	 * @param String iStrStartCount, String iStrEndCount, <ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return <<ObjectName>>List
+	 */
+	public <<ObjectName>>List find<<ObjectName>>List (final String iStrStartCount, final String iStrEndCount, final <<ObjectName>>Condition i<<ObjectName>>Condition);
+	
+    /**
+	 * 儲存<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr  	
+	 */
+	public void saveA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr);
+	
+	/**
+	 * 儲存<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr  	
+	 */
+	public void save<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr);
+	
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 */
+	public void removeA<<ObjectName>>(final String iXuid, final Account iMgr);
+ 
+ 	/**
+	 * 刪除<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr
+	 */
+	public void remove<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr);
+
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)BySelective
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr
+	 */
+	public void remove<<ObjectName>>BySelective(final <<ObjectName>> i<<ObjectName>>, final Account iMgr);
+
+	//===================================================================
+	// <<ObjectName>>BO Method(findAObject, findList, save, remove) End-<<TableName>> 
+	//===================================================================
+	
+	

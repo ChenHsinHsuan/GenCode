@@ -1,0 +1,195 @@
+    
+    
+	//===================================================================
+	// <<ObjectName>>BO Method(findAObject, findList, save, remove) Start-<<TableName>>
+	//===================================================================
+   	
+	/**
+	 * 取一<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, int iInclude
+	 * @return <<ObjectName>>
+	 */
+	public <<ObjectName>> findA<<ObjectName>>(final String iXuid, final int iInclude) {
+				
+		return get<<ObjectName>>(iXuid, iInclude);
+	}
+		
+	/**
+	 * 取得<<ObjectName>>清單筆數(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return int
+	 */
+	public int find<<ObjectName>>ListCount (final <<ObjectName>>Condition i<<ObjectName>>Condition){
+		<<ObjectName>>Condition key = i<<ObjectName>>Condition;
+		if (key == null) {
+			key = new <<ObjectName>>Condition();
+		}
+		int intCount = <<ModuleNameFrLowCase>>UtilDAO.select<<ObjectName>>ListCount(key);
+		
+		return Integer.valueOf(intCount);
+	}
+	
+	/**
+	 * 取得<<ObjectName>>清單筆數，判斷是否有資料存在(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return boolean(true:有存在資料, false:未存在資料)
+	 */
+	public boolean find<<ObjectName>>ListCountHasRec (final <<ObjectName>>Condition i<<ObjectName>>Condition){
+		<<ObjectName>>Condition key = i<<ObjectName>>Condition;
+		if (key == null) {
+			key = new <<ObjectName>>Condition();
+		}
+		int intCount = <<ModuleNameFrLowCase>>UtilDAO.select<<ObjectName>>ListCount(key);
+		
+		if(intCount > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	/**
+	 * 取<<ObjectName>>清單(<<TableName>>)
+	 * @param String iStrStartCount, String iStrEndCount, <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return <<ObjectName>>List
+	 */
+	public <<ObjectName>>List find<<ObjectName>>List (final String iStrStartCount, final String iStrEndCount, final <<ObjectName>>Condition i<<ObjectName>>Condition){
+		<<ObjectName>>Condition key = i<<ObjectName>>Condition;
+        if(key == null){
+            key = new <<ObjectName>>Condition();
+        }
+        key.setStartCount(iStrStartCount);
+        key.setEndCount(iStrEndCount);
+
+        List list = <<ModuleNameFrLowCase>>UtilDAO.select<<ObjectName>>List(key);
+        <<ObjectName>>List objReturn = new <<ObjectName>>List();
+        objReturn.addAll(list);
+        
+		return objReturn;
+	}
+		
+    /**
+	 * 儲存<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr  	
+	 */
+	public void saveA<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr){
+	
+		store<<ObjectName>>(i<<ObjectName>>, iMgr);
+	}
+	
+	/**
+	 * 儲存<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr  	
+	 */
+	public void save<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr){
+		<<ObjectName>> the<<ObjectName>> = null;
+		for(int i = 0; i < i<<ObjectName>>List.size(); i++){
+			the<<ObjectName>> = i<<ObjectName>>List.get<<ObjectName>>(i);
+			store<<ObjectName>>(the<<ObjectName>>, iMgr);
+		}
+	}
+
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)
+	 * @param String iXuid, Account iMgr
+	 */
+	public void removeA<<ObjectName>>(final String iXuid, final Account iMgr){
+	    <<ObjectName>> objInDB = <<ObjectNameFrLowCase>>DAO.selectByPrimaryKey(iXuid);
+		if (objInDB == null) {
+			throw new DataNotExistsException("資料不存在，刪除失敗!(Xuid:" + iXuid + ")");
+		}else{
+			<<ObjectNameFrLowCase>>DAO.deleteByPrimaryKey(iXuid);
+		}	
+	}
+	
+	/**
+	 * 刪除<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>List i<<ObjectName>>List, Account iMgr
+	 */
+	public void remove<<ObjectName>>List(final <<ObjectName>>List i<<ObjectName>>List, final Account iMgr){
+		<<ObjectName>> the<<ObjectName>> = null;
+		for(int i = 0; i < i<<ObjectName>>List.size(); i++){
+			the<<ObjectName>> = i<<ObjectName>>List.get<<ObjectName>>(i);
+			removeA<<ObjectName>>(the<<ObjectName>>.getXuid(), iMgr);
+		}
+	}
+	
+	/**
+	 * 刪除<<ObjectName>>(<<TableName>>)BySelective
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iMgr
+	 */
+	public void remove<<ObjectName>>BySelective(final <<ObjectName>> i<<ObjectName>>, final Account iMgr){
+		<<ObjectNameFrLowCase>>DAO.deleteBySelective(i<<ObjectName>>);
+	}
+
+	// ############# Private ###################################################
+		
+	/**
+	 * 取一<<ObjectName>>(含明細)(<<TableName>>)
+	 * @param String iXuid, int iInclude
+	 * @return <<ObjectName>>
+	 */
+	private <<ObjectName>> get<<ObjectName>>(final String iXuid, final int iInclude) {
+		<<ObjectName>> objReturn = <<ObjectNameFrLowCase>>DAO.selectByPrimaryKey(iXuid);
+
+		if (objReturn == null || objReturn.getXuid().length() == 0) {
+			return null;
+		}
+
+		// Include Mehod
+		<<InculdeDetailMethod>>
+		
+		return objReturn;
+	}
+   
+    /**
+	 * 儲存<<ObjectName>>(<<TableName>>)
+	 * @param <<ObjectName>> i<<ObjectName>>, Account iAccont  	
+	 */
+    private void store<<ObjectName>>(final <<ObjectName>> i<<ObjectName>>, final Account iMgr) {
+		String strNow = new Ystd().utime();
+		
+		<<ObjectName>> objInDB = <<ObjectNameFrLowCase>>DAO.selectByPrimaryKey(i<<ObjectName>>.getXuid());
+			
+		if (objInDB == null || objInDB.getXuid().length() == 0) {
+			//新增
+			int retryCount = 0;
+			boolean retry = false;
+			do {
+				retry = false;
+				try {
+					i<<ObjectName>>.setXuid(StringUtil.genXUID() + "_" + find<<ModuleName>>ModelSeqNum());
+					i<<ObjectName>>.setGfemp(iMgr.getAcno());
+					i<<ObjectName>>.setGftm(strNow);
+					i<<ObjectName>>.setReturnNullNoThisField(true);
+					<<ObjectNameFrLowCase>>DAO.insertSelective(i<<ObjectName>>);
+					i<<ObjectName>>.setReturnNullNoThisField(false);
+				} catch (Exception e) {
+					e.printStackTrace();
+					if (retryCount < 3) {
+						retry = true;
+						retryCount++;
+						try {
+							Thread.sleep(10);
+							// 休息0.01 sec,再試一次
+						} catch (Exception e3) {
+						}
+					} else {
+						throw new RuntimeException(e);
+					}
+				}
+			} while (retry);
+		} else {
+			//更新
+			i<<ObjectName>>.setTxemp(iMgr.getAcno());
+			i<<ObjectName>>.setTxtm(strNow);
+			i<<ObjectName>>.setReturnNullNoThisField(true);
+			<<ObjectNameFrLowCase>>DAO.updateByPrimaryKeySelective(i<<ObjectName>>);
+			i<<ObjectName>>.setReturnNullNoThisField(false);
+		}
+	}
+
+	//===================================================================
+	// <<ObjectName>>BO Method(findAObject, findList, save, remove) End-<<TableName>> 
+	//===================================================================
+	

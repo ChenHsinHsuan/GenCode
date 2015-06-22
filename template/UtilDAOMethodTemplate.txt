@@ -1,0 +1,22 @@
+	//===================================================================
+	// <<ObjectName>>DAO Search Method Start-<<TableName>>
+	//===================================================================
+	/**
+	 * 取得<<ObjectName>>清單筆數(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return int
+	 */
+	public int select<<ObjectName>>ListCount (<<ObjectName>>Condition i<<ObjectName>>Condition);
+	
+	
+	/**
+	 * 取<<ObjectName>>清單(<<TableName>>)
+	 * @param <<ObjectName>>Condition i<<ObjectName>>Condition
+	 * @return <<ObjectName>>List
+	 */
+	public List select<<ObjectName>>List (<<ObjectName>>Condition i<<ObjectName>>Condition);
+
+	//===================================================================
+	// <<ObjectName>>DAO Search Method End-<<TableName>>
+	//===================================================================
+	

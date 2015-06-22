@@ -1,0 +1,24 @@
+package <<PackageName>>.dao;
+
+import java.util.List;
+
+import <<PackageName>>.model.list.*;
+import <<PackageName>>.model.condition.*;
+
+/**
+ * <<ModuleName>>UtilDAO 介面
+ * @author <<Author>>
+ */
+public interface <<ModuleName>>UtilDAO {
+
+	// ### Sequence Method  ##################################################
+
+    /**
+	 * 取得<<ModuleName>>模組序號
+	 */
+    public String selectSequenceNumber();
+    
+    // ### Search Method  ##################################################
+    
+    <<UtilDAOMethod>>
+}

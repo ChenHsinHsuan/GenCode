@@ -1,0 +1,30 @@
+package <<PackageName>>.model.list;
+
+import java.util.Hashtable;
+
+import <<PackageName>>.model.<<ObjectName>>;
+import com.fpg.ec.utility.db.DataAccessor;
+import com.fpg.ec.utility.db.SKDataAccessorList;
+
+/**
+ * <<ObjectName>>Model List物件(<<TableName>>)
+ * @author <<Author>>
+ */
+public class <<ObjectName>>List extends SKDataAccessorList {
+   
+    private static final long serialVersionUID = 7493844310496215597L;
+   
+	public DataAccessor genObj(Hashtable i_data){
+		return new <<ObjectName>>(i_data);
+	}
+
+    public <<ObjectName>> get<<ObjectName>>(String i_key) {
+        return (<<ObjectName>>) super.get(i_key);
+    }
+
+    public <<ObjectName>> get<<ObjectName>>(int i_index) {
+        return (<<ObjectName>>) super.get(i_index);
+    }	
+	
+}
+

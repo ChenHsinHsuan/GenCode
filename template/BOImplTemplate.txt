@@ -1,0 +1,60 @@
+package <<PackageName>>.bo;
+
+import java.util.List;
+
+import com.fpg.ec.authority.model.Account;
+import <<PackageName>>.model.*;
+import <<PackageName>>.model.list.*;
+import <<PackageName>>.dao.*;
+import <<PackageName>>.model.condition.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fpg.ec.utility.StringUtil;
+import com.fpg.ec.utility.Ystd;
+
+/**
+ * <<ModuleName>> Inner BO實作物件
+ * @author <<Author>>
+ */
+@Service 
+class <<ModuleName>>BOImpl implements <<ModuleName>>BO {
+	
+	// ### 宣告資料  ##################################################
+	StringUtil strUtil = new StringUtil();
+	
+	// DAO Autowired
+	@Autowired
+	private <<ModuleName>>UtilDAO <<ModuleNameFrLowCase>>UtilDAO;
+    <<DAOAutowiredInit>>
+
+    // BO
+	
+	// include data index
+	public static int INCLUDE_NONE = 0;
+	<<InculdeDetail>>
+    
+    // ### BO Method #############################################
+    
+    <<BOImplMethod>>
+	
+	// ### Sequence ##############################################
+	
+	/**
+	 * 取得<<ModuleName>>模組序號
+	 */
+	public String find<<ModuleName>>ModelSeqNum() {
+		String objReturn = <<ModuleNameFrLowCase>>UtilDAO.selectSequenceNumber();
+		if (objReturn.length() < 4) {
+			objReturn = strUtil.lpad(objReturn, 4, '0');
+		} else {
+			// 避免Sequence過長  只取Seqence最後四碼  同時也避免重覆
+			int len = objReturn.length();
+			objReturn = objReturn.substring(len - 4);
+		}
+		
+		return objReturn;
+	}
+	
+}

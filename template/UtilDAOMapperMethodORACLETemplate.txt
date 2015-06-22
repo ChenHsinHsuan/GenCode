@@ -1,0 +1,44 @@
+	<!-- <<ObjectName>> Start-<<TableNameVal>> -->
+	<sql id="select<<ObjectName>>ListConditions">
+		from <<TableName>>
+		<where>
+           <<Conditions>>
+        </where>
+	</sql>
+	
+	<select id="select<<ObjectName>>List" resultType="<<PackageName>>.model.<<ObjectName>>" parameterType="<<PackageName>>.model.condition.<<ObjectName>>Condition">
+		select * from (
+			select a.*,rownum rn from (
+				select <<TableGetFieldName>>
+					<include refid="select<<ObjectName>>ListConditions" />
+					<choose>
+					    <when test="orderByList !=null and orderByList.size > 0">
+					         order by 
+						     <foreach collection="orderByList" item="orderByField" open="" close="" separator=",">
+					            \${orderByField}
+					         </foreach>
+					    </when>
+					    <otherwise>
+					         order by Xuid
+					    </otherwise>
+					</choose>
+				) a 
+				<where>			
+					<if test="endCount != '' " >
+				       rownum <![CDATA[ <= ]]> #{endCount}
+				    </if>
+				</where>
+			) 
+			<where>
+			   <if test="startCount != '' " >
+		          rownum <![CDATA[ >= ]]> #{startCount}
+		       </if>
+			</where>
+	</select>
+
+	<select id="select<<ObjectName>>ListCount" resultType="java.lang.Integer" parameterType="<<PackageName>>.model.condition.<<ObjectName>>Condition">
+		select count(1) totalCount
+		<include refid="select<<ObjectName>>ListConditions" />
+	</select>
+    <!-- <<ObjectName>> End-<<TableNameVal>> -->
+    

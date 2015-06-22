@@ -1,0 +1,48 @@
+package <<PackageName>>.bo;
+
+import com.fpg.ec.authority.model.Account;
+import <<PackageName>>.model.*;
+import <<PackageName>>.model.list.*;
+import <<PackageName>>.dao.*;
+import <<PackageName>>.model.condition.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fpg.ec.utility.StringUtil;
+import com.fpg.ec.utility.Ystd;
+
+/**
+ * <<ModuleName>> UtilBO實作物件
+ * @author <<Author>>
+ */
+@Service 
+public class <<ModuleName>>UtilBOImpl implements <<ModuleName>>UtilBO {
+	
+	// ### 宣告資料  ##################################################
+	
+	StringUtil strUtil = new StringUtil();
+	
+	// DAO Autowired
+	@Autowired
+	private <<ModuleName>>UtilDAO <<ModuleNameFrLowCase>>UtilDAO;
+
+    // BO Autowired
+	@Autowired
+	private <<ModuleName>>BO <<ModuleNameFrLowCase>>BO;
+	
+	// include data index
+	private static int INCLUDE_NONE = 0;
+	private static int INCLUDE_ALL = 1023; 
+    
+    // ### BO Method #############################################
+    
+    <<BOImplMethod>>
+	
+	// ### 自訂 Method #############################################
+	
+	
+	// ### Private #############################################
+	
+	
+}

@@ -1,0 +1,58 @@
+package <<PackageName>>.bo;
+
+import com.fpg.ec.authority.model.Account;
+import <<PackageName>>.model.*;
+import <<PackageName>>.model.list.*;
+import <<PackageName>>.model.condition.*;
+
+/**
+ * <<ModuleName>> UtilBO 介面
+ * @author <<Author>>
+ */
+public interface <<ModuleName>>UtilBO {
+   
+   // ### Exceptions ###############################################	
+   
+   	/**
+	 * 資料不存在Exception
+	 */
+	static class DataNotExistsException extends RuntimeException {
+		private static final long serialVersionUID = -1363772139201021015L;
+
+		DataNotExistsException(String msg) {
+			super(msg);
+		}
+	}
+	
+	/**
+	 * 資料狀態已變更Exception
+	 */
+	static class DataStsChangeException extends RuntimeException {
+		private static final long serialVersionUID = -1363772139201021015L;
+
+		DataStsChangeException(String msg) {
+			super(msg);
+		}
+	}
+	
+	/**
+	 * 資料已存在Exception
+	 */
+	static class DataExistedException extends RuntimeException {
+		private static final long serialVersionUID = 5866205776044027244L;
+		
+		DataExistedException(String msg) {
+			super(msg);
+		}
+	}
+	
+	// ### BO Method #############################################
+	
+	<<BOMethod>>
+	
+	    
+	// ### 自訂 Method #############################################
+	
+	
+	// ### Private #############################################
+}
